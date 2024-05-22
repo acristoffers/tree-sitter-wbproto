@@ -1,0 +1,1330 @@
+================================================================================
+Empty PROTO
+================================================================================
+
+#VRML V2.0 utf8
+
+PROTO TurtleBot3WafflePi [ ] { }
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (proto
+    (identifier)))
+
+================================================================================
+PROTO with fields
+================================================================================
+
+PROTO TurtleBot3WafflePi [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "TurtleBot3WafflePi"  # Is `Robot.name`.
+  field  SFString    controller      "void"                # Is `Robot.controller`.
+  field  MFString    controllerArgs  []                    # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""                    # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE                 # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE                  # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE                 # Is `Robot.selfCollision`.
+] { }
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (proto
+    (identifier)
+    (field
+      (identifier)
+      (identifier)
+      (vector
+        (number)
+        (number)
+        (number)))
+    (field
+      (identifier)
+      (identifier)
+      (vector
+        (number)
+        (number)
+        (number)
+        (number)))
+    (field
+      (identifier)
+      (identifier)
+      (string))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (string))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (vector))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (string))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (boolean))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (boolean))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (boolean))
+    (comment)))
+
+================================================================================
+Real PROTO
+================================================================================
+
+#VRML_SIM R2023b utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the waffle
+
+PROTO TurtleBot3WafflePi [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "TurtleBot3WafflePi"  # Is `Robot.name`.
+  field  SFString    controller      "void"                # Is `Robot.controller`.
+  field  MFString    controllerArgs  []                    # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""                    # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE                 # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE                  # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE                 # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    name IS name
+    rotation IS rotation
+    selfCollision IS selfCollision
+    supervisor IS supervisor
+    synchronization IS synchronization
+    translation IS translation
+    children [
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0 1 0.000796
+          anchor 0 0.144 0.023
+        }
+        device [
+          RotationalMotor {
+            name "left wheel motor"
+            consumptionFactor -0.001
+            maxVelocity 6.67
+          }
+          PositionSensor {
+            name "left wheel sensor"
+            resolution 0.00628
+          }
+        ]
+        endPoint Solid {
+          translation 0 0.144 0.023
+          rotation -1 0 0 1.57
+          children [
+            Transform {
+              rotation 1 0 0 1.57
+              scale 0.001 0.001 0.001
+              children [
+                Shape {
+                  appearance DEF dark PBRAppearance {
+                    baseColor 0.5 0.5 0.5
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry DEF left_tire Mesh {
+                    url "../meshes/wheels/left_tire.stl"
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_left_link"
+          boundingObject Cylinder {
+            radius 0.033
+            height 0.018
+          }
+          physics Physics {
+            density -1
+            mass 0.028499
+            centerOfMass [ 0 0 0 ]
+            inertiaMatrix [
+              1.117558e-05 1.119241e-05 2.071256e-05
+              -4.236978e-11 -5.938172e-09 -1.440011e-11
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0 1 0.000796
+          anchor 0 -0.144 0.023
+        }
+        device [
+          RotationalMotor {
+            name "right wheel motor"
+            consumptionFactor -0.001
+            maxVelocity 6.67
+          }
+          PositionSensor {
+            name "right wheel sensor"
+            resolution 0.00628
+          }
+        ]
+        endPoint Solid {
+          translation 0 -0.144 0.023
+          rotation -1 0 0 1.57
+          children [
+            Transform {
+              rotation 1 0 0 1.57
+              scale 0.001 0.001 0.001
+              children [
+                Shape {
+                  appearance USE dark
+                  geometry DEF right_tire Mesh {
+                    url "../meshes/wheels/right_tire.stl"
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_right_link"
+          boundingObject Cylinder {
+            radius 0.033
+            height 0.018
+          }
+          physics Physics {
+            density -1
+            mass 0.028499
+            centerOfMass [ 0 0 0 ]
+            inertiaMatrix [
+              1.117558e-05 1.119241e-05 2.071256e-05
+              -4.236978e-11 -5.938172e-09 -1.440011e-11
+            ]
+          }
+        }
+      }
+      BallJoint {
+        jointParameters BallJointParameters {
+          anchor -0.177 0.064 -0.006
+        }
+        endPoint Solid {
+          name "right ball joint"
+          translation -0.177 0.064 -0.006
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry DEF CASTER_SPHERE Sphere {
+                radius 0.004
+                subdivision 2
+              }
+            }
+          ]
+          boundingObject USE CASTER_SPHERE
+          physics Physics {
+          }
+        }
+      }
+      BallJoint {
+        jointParameters BallJointParameters {
+          anchor -0.177 -0.064 -0.006
+        }
+        endPoint Solid {
+          name "left ball joint"
+          translation -0.177 -0.064 -0.006
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry USE CASTER_SPHERE
+            }
+          ]
+          boundingObject USE CASTER_SPHERE
+          physics Physics {
+          }
+        }
+      }
+      Pose {
+        children [
+          Transform {
+            translation -0.064 0 0
+            scale 0.001 0.001 0.001
+            children [
+              Shape {
+                appearance DEF light_black PBRAppearance {
+                  baseColor 0.2 0.2 0.2
+                  roughness 1
+                  metalness 1
+                }
+                geometry DEF waffle_pi_base Mesh {
+                  url "../meshes/bases/waffle_pi_base.stl"
+                }
+              }
+            ]
+          }
+          Solid {
+            translation -0.064 0 0.122
+            children [
+              Transform {
+                scale 0.001 0.001 0.001
+                children [
+                  Shape {
+                    appearance USE dark
+                    geometry DEF lds Mesh {
+                      url "../meshes/sensors/lds.stl"
+                    }
+                  }
+                ]
+              }
+            ]
+            name "base_scan"
+            boundingObject Cylinder {
+              radius 0.055
+              height 0.0315
+            }
+            physics Physics {
+              density -1
+              mass 0.114
+              centerOfMass [ 0 0 0 ]
+              inertiaMatrix [
+                1e-03 1e-03 1e-03
+                0     0     0
+              ]
+            }
+          }
+          Solid {
+            translation 0.073 -0.011 0.084
+            children [
+              Solid {
+                translation 0.003 0.011 0.009
+                children [
+                  Pose {
+                    translation 0 0 0
+                    rotation 0.577350 -0.577350 0.577350 2.094395
+                    children [
+                      # Camera {
+                      #   name "Pi Camera"
+                      #   fieldOfView 1.085595
+                      #   width 640
+                      #   height 480
+                      # }
+                    ]
+                  }
+                ]
+                name "camera_rgb_frame"
+              }
+            ]
+            name "camera_link"
+            boundingObject Box {
+               size 0.015 0.03 0.027
+            }
+            physics Physics {
+            }
+          }
+        ]
+      }
+      InertialUnit {
+        name "imu inertial"
+      }
+      Accelerometer {
+        name "imu accelerometer"
+      }
+      Gyro {
+        name "imu gyro"
+      }
+      Compass {
+        name "imu compass"
+      }
+      Lidar {
+        name "lds_lfcd_sensor"
+        fieldOfView 6.283190
+        horizontalResolution 360
+        numberOfLayers 1
+        minRange 0.12
+        maxRange 3.5
+        noise 0.002857
+        resolution 0.015
+      }
+      DistanceSensor {
+        translation 0 0 0.02
+        rotation 0 0 0 0
+        children [
+          DEF SENSOR Transform {
+            rotation 1 0 1 3.1415
+          }
+        ]
+        name "ds0"
+        lookupTable [
+          0   0    0
+          0.5 512  0
+          1   1023 0
+        ]
+        numberOfRays 2
+        aperture 1
+      }
+    ]
+    boundingObject Transform {
+      translation -0.069 0 0.047
+      children [
+        Box {
+           size 0.266 0.266 0.094
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 1.37291
+      centerOfMass [ 0 0 0 ]
+      inertiaMatrix [
+        8.700272e-03 8.619542e-03 1.461273e-02
+        -4.757658e-05 1.116050e-04 -3.542230e-06
+      ]
+    }
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (comment)
+  (proto
+    (identifier)
+    (field
+      (identifier)
+      (identifier)
+      (vector
+        (number)
+        (number)
+        (number)))
+    (field
+      (identifier)
+      (identifier)
+      (vector
+        (number)
+        (number)
+        (number)
+        (number)))
+    (field
+      (identifier)
+      (identifier)
+      (string))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (string))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (vector))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (string))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (boolean))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (boolean))
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (boolean))
+    (comment)
+    (class
+      (identifier)
+      (property
+        (identifier)
+        (identifier))
+      (property
+        (identifier)
+        (identifier))
+      (property
+        (identifier)
+        (identifier))
+      (property
+        (identifier)
+        (identifier))
+      (property
+        (identifier)
+        (identifier))
+      (property
+        (identifier)
+        (identifier))
+      (property
+        (identifier)
+        (identifier))
+      (property
+        (identifier)
+        (identifier))
+      (property
+        (identifier)
+        (identifier))
+      (property
+        (identifier)
+        (vector
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (class
+                (identifier)
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))))
+            (property
+              (identifier)
+              (vector
+                (class
+                  (identifier)
+                  (property
+                    (identifier)
+                    (string))
+                  (property
+                    (identifier)
+                    (vector
+                      (number)))
+                  (property
+                    (identifier)
+                    (vector
+                      (number))))
+                (class
+                  (identifier)
+                  (property
+                    (identifier)
+                    (string))
+                  (property
+                    (identifier)
+                    (vector
+                      (number))))))
+            (property
+              (identifier)
+              (class
+                (identifier)
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)
+                    (number)))
+                (property
+                  (identifier)
+                  (vector
+                    (class
+                      (identifier)
+                      (property
+                        (identifier)
+                        (vector
+                          (number)
+                          (number)
+                          (number)
+                          (number)))
+                      (property
+                        (identifier)
+                        (vector
+                          (number)
+                          (number)
+                          (number)))
+                      (property
+                        (identifier)
+                        (vector
+                          (class
+                            (identifier)
+                            (property
+                              (identifier)
+                              (identifier)
+                              (class
+                                (identifier)
+                                (property
+                                  (identifier)
+                                  (vector
+                                    (number)
+                                    (number)
+                                    (number)))
+                                (property
+                                  (identifier)
+                                  (vector
+                                    (number)))
+                                (property
+                                  (identifier)
+                                  (vector
+                                    (number)))))
+                            (property
+                              (identifier)
+                              (identifier)
+                              (class
+                                (identifier)
+                                (property
+                                  (identifier)
+                                  (string))))))))))
+                (property
+                  (identifier)
+                  (string))
+                (property
+                  (identifier)
+                  (class
+                    (identifier)
+                    (property
+                      (identifier)
+                      (vector
+                        (number)))
+                    (property
+                      (identifier)
+                      (vector
+                        (number)))))
+                (property
+                  (identifier)
+                  (class
+                    (identifier)
+                    (property
+                      (identifier)
+                      (vector
+                        (number)))
+                    (property
+                      (identifier)
+                      (vector
+                        (number)))
+                    (property
+                      (identifier)
+                      (vector
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number))))
+                    (property
+                      (identifier)
+                      (vector
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number)))))))))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (class
+                (identifier)
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))))
+            (property
+              (identifier)
+              (vector
+                (class
+                  (identifier)
+                  (property
+                    (identifier)
+                    (string))
+                  (property
+                    (identifier)
+                    (vector
+                      (number)))
+                  (property
+                    (identifier)
+                    (vector
+                      (number))))
+                (class
+                  (identifier)
+                  (property
+                    (identifier)
+                    (string))
+                  (property
+                    (identifier)
+                    (vector
+                      (number))))))
+            (property
+              (identifier)
+              (class
+                (identifier)
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)
+                    (number)))
+                (property
+                  (identifier)
+                  (vector
+                    (class
+                      (identifier)
+                      (property
+                        (identifier)
+                        (vector
+                          (number)
+                          (number)
+                          (number)
+                          (number)))
+                      (property
+                        (identifier)
+                        (vector
+                          (number)
+                          (number)
+                          (number)))
+                      (property
+                        (identifier)
+                        (vector
+                          (class
+                            (identifier)
+                            (property
+                              (identifier)
+                              (identifier))
+                            (property
+                              (identifier)
+                              (identifier)
+                              (class
+                                (identifier)
+                                (property
+                                  (identifier)
+                                  (string))))))))))
+                (property
+                  (identifier)
+                  (string))
+                (property
+                  (identifier)
+                  (class
+                    (identifier)
+                    (property
+                      (identifier)
+                      (vector
+                        (number)))
+                    (property
+                      (identifier)
+                      (vector
+                        (number)))))
+                (property
+                  (identifier)
+                  (class
+                    (identifier)
+                    (property
+                      (identifier)
+                      (vector
+                        (number)))
+                    (property
+                      (identifier)
+                      (vector
+                        (number)))
+                    (property
+                      (identifier)
+                      (vector
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number))))
+                    (property
+                      (identifier)
+                      (vector
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number))
+                        (vector
+                          (number)))))))))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (class
+                (identifier)
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))))
+            (property
+              (identifier)
+              (class
+                (identifier)
+                (property
+                  (identifier)
+                  (string))
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))
+                (property
+                  (identifier)
+                  (vector
+                    (class
+                      (identifier)
+                      (property
+                        (identifier)
+                        (class
+                          (identifier)))
+                      (property
+                        (identifier)
+                        (identifier)
+                        (class
+                          (identifier)
+                          (property
+                            (identifier)
+                            (vector
+                              (number)))
+                          (property
+                            (identifier)
+                            (vector
+                              (number))))))))
+                (property
+                  (identifier)
+                  (identifier))
+                (property
+                  (identifier)
+                  (class
+                    (identifier))))))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (class
+                (identifier)
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))))
+            (property
+              (identifier)
+              (class
+                (identifier)
+                (property
+                  (identifier)
+                  (string))
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number)))
+                (property
+                  (identifier)
+                  (vector
+                    (class
+                      (identifier)
+                      (property
+                        (identifier)
+                        (class
+                          (identifier)))
+                      (property
+                        (identifier)
+                        (identifier)))))
+                (property
+                  (identifier)
+                  (identifier))
+                (property
+                  (identifier)
+                  (class
+                    (identifier))))))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (vector
+                (class
+                  (identifier)
+                  (property
+                    (identifier)
+                    (vector
+                      (number)
+                      (number)
+                      (number)))
+                  (property
+                    (identifier)
+                    (vector
+                      (number)
+                      (number)
+                      (number)))
+                  (property
+                    (identifier)
+                    (vector
+                      (class
+                        (identifier)
+                        (property
+                          (identifier)
+                          (identifier)
+                          (class
+                            (identifier)
+                            (property
+                              (identifier)
+                              (vector
+                                (number)
+                                (number)
+                                (number)))
+                            (property
+                              (identifier)
+                              (vector
+                                (number)))
+                            (property
+                              (identifier)
+                              (vector
+                                (number)))))
+                        (property
+                          (identifier)
+                          (identifier)
+                          (class
+                            (identifier)
+                            (property
+                              (identifier)
+                              (string))))))))
+                (class
+                  (identifier)
+                  (property
+                    (identifier)
+                    (vector
+                      (number)
+                      (number)
+                      (number)))
+                  (property
+                    (identifier)
+                    (vector
+                      (class
+                        (identifier)
+                        (property
+                          (identifier)
+                          (vector
+                            (number)
+                            (number)
+                            (number)))
+                        (property
+                          (identifier)
+                          (vector
+                            (class
+                              (identifier)
+                              (property
+                                (identifier)
+                                (identifier))
+                              (property
+                                (identifier)
+                                (identifier)
+                                (class
+                                  (identifier)
+                                  (property
+                                    (identifier)
+                                    (string))))))))))
+                  (property
+                    (identifier)
+                    (string))
+                  (property
+                    (identifier)
+                    (class
+                      (identifier)
+                      (property
+                        (identifier)
+                        (vector
+                          (number)))
+                      (property
+                        (identifier)
+                        (vector
+                          (number)))))
+                  (property
+                    (identifier)
+                    (class
+                      (identifier)
+                      (property
+                        (identifier)
+                        (vector
+                          (number)))
+                      (property
+                        (identifier)
+                        (vector
+                          (number)))
+                      (property
+                        (identifier)
+                        (vector
+                          (vector
+                            (number))
+                          (vector
+                            (number))
+                          (vector
+                            (number))))
+                      (property
+                        (identifier)
+                        (vector
+                          (vector
+                            (number))
+                          (vector
+                            (number))
+                          (vector
+                            (number))
+                          (vector
+                            (number))
+                          (vector
+                            (number))
+                          (vector
+                            (number)))))))
+                (class
+                  (identifier)
+                  (property
+                    (identifier)
+                    (vector
+                      (number)
+                      (number)
+                      (number)))
+                  (property
+                    (identifier)
+                    (vector
+                      (class
+                        (identifier)
+                        (property
+                          (identifier)
+                          (vector
+                            (number)
+                            (number)
+                            (number)))
+                        (property
+                          (identifier)
+                          (vector
+                            (class
+                              (identifier)
+                              (property
+                                (identifier)
+                                (vector
+                                  (number)
+                                  (number)
+                                  (number)))
+                              (property
+                                (identifier)
+                                (vector
+                                  (number)
+                                  (number)
+                                  (number)
+                                  (number)))
+                              (property
+                                (identifier)
+                                (vector
+                                  (comment)
+                                  (comment)
+                                  (comment)
+                                  (comment)
+                                  (comment)
+                                  (comment))))))
+                        (property
+                          (identifier)
+                          (string)))))
+                  (property
+                    (identifier)
+                    (string))
+                  (property
+                    (identifier)
+                    (class
+                      (identifier)
+                      (property
+                        (identifier)
+                        (vector
+                          (number)
+                          (number)
+                          (number)))))
+                  (property
+                    (identifier)
+                    (class
+                      (identifier)))))))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (string)))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (string)))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (string)))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (string)))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (string))
+            (property
+              (identifier)
+              (vector
+                (number)))
+            (property
+              (identifier)
+              (vector
+                (number)))
+            (property
+              (identifier)
+              (vector
+                (number)))
+            (property
+              (identifier)
+              (vector
+                (number)))
+            (property
+              (identifier)
+              (vector
+                (number)))
+            (property
+              (identifier)
+              (vector
+                (number)))
+            (property
+              (identifier)
+              (vector
+                (number))))
+          (class
+            (identifier)
+            (property
+              (identifier)
+              (vector
+                (number)
+                (number)
+                (number)))
+            (property
+              (identifier)
+              (vector
+                (number)
+                (number)
+                (number)
+                (number)))
+            (property
+              (identifier)
+              (vector
+                (identifier)
+                (class
+                  (identifier)
+                  (property
+                    (identifier)
+                    (vector
+                      (number)
+                      (number)
+                      (number)
+                      (number))))))
+            (property
+              (identifier)
+              (string))
+            (property
+              (identifier)
+              (vector
+                (vector
+                  (number))
+                (vector
+                  (number))
+                (vector
+                  (number))
+                (vector
+                  (number))
+                (vector
+                  (number))
+                (vector
+                  (number))
+                (vector
+                  (number))
+                (vector
+                  (number))
+                (vector
+                  (number))))
+            (property
+              (identifier)
+              (vector
+                (number)))
+            (property
+              (identifier)
+              (vector
+                (number))))))
+      (property
+        (identifier)
+        (class
+          (identifier)
+          (property
+            (identifier)
+            (vector
+              (number)
+              (number)
+              (number)))
+          (property
+            (identifier)
+            (vector
+              (class
+                (identifier)
+                (property
+                  (identifier)
+                  (vector
+                    (number)
+                    (number)
+                    (number))))))))
+      (property
+        (identifier)
+        (class
+          (identifier)
+          (property
+            (identifier)
+            (vector
+              (number)))
+          (property
+            (identifier)
+            (vector
+              (number)))
+          (property
+            (identifier)
+            (vector
+              (vector
+                (number))
+              (vector
+                (number))
+              (vector
+                (number))))
+          (property
+            (identifier)
+            (vector
+              (vector
+                (number))
+              (vector
+                (number))
+              (vector
+                (number))
+              (vector
+                (number))
+              (vector
+                (number))
+              (vector
+                (number)))))))))
+
+================================================================================
+Procedural PROTO
+================================================================================
+
+#VRML_SIM R2023b utf8
+# tags: nonDeterministic
+# template language: javascript
+
+PROTO DominoSpawner [
+  # these are the PROTO fields and define the default values. Here template statements are not allowed
+  field SFVec2f   startPoint          0 0
+  field SFVec2f   endPoint            1 1
+]
+{
+  # template statements can be used from here
+  %< if true { >%
+    Robot {}
+  %< } else { >%
+    Robot {
+      name %<= obj.name >%
+    }
+  %< } >%
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (comment)
+  (comment)
+  (proto
+    (identifier)
+    (comment)
+    (field
+      (identifier)
+      (identifier)
+      (vector
+        (number)
+        (number)))
+    (field
+      (identifier)
+      (identifier)
+      (vector
+        (number)
+        (number)))
+    (comment)
+    (javascript
+      (code))
+    (class
+      (identifier))
+    (javascript
+      (code))
+    (class
+      (identifier)
+      (property
+        (identifier)
+        (javascript
+          (code))))
+    (javascript
+      (code))))

@@ -1,0 +1,3 @@
+[(proto)
+ (class)
+ (vector)] @fold
