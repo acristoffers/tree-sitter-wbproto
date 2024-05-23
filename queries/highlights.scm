@@ -10,6 +10,11 @@
   "IS"
   "PROTO"
   "USE"
+  "field"
+  "hidden"
+  "hiddenField"
+  "unconnectedField"
+  "vrmlField"
 ] @keyword
 
 ; Variables

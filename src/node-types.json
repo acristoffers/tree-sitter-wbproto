@@ -51,24 +51,22 @@
             "named": true
           }
         ]
-      },
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "class",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -81,6 +79,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         },
         {
@@ -226,6 +228,45 @@
     "fields": {}
   },
   {
+    "type": "type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "class",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "javascript",
+          "named": true
+        },
+        {
+          "type": "null",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "vector",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "vector",
     "named": true,
     "fields": {},
@@ -341,6 +382,10 @@
     "named": false
   },
   {
+    "type": "hiddenField",
+    "named": false
+  },
+  {
     "type": "null",
     "named": true
   },
@@ -350,6 +395,10 @@
   },
   {
     "type": "unconnectedField",
+    "named": false
+  },
+  {
+    "type": "vrmlField",
     "named": false
   },
   {

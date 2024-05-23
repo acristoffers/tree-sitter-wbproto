@@ -35,9 +35,10 @@ module.exports = grammar({
     _vectorWithoutBrackets: $ => prec(1, repeat1(seq(optional(","), $.number))),
     vector: $ => choice($._vectorWithBrackets, $._vectorWithoutBrackets),
 
-    _fieldType: _ => choice("field", "unconnectedField"),
+    _fieldDecl: _ => choice("field", "unconnectedField", "vrmlField", "hiddenField"),
+    _fieldType: $ => seq($.identifier, optional(seq("{", repeat($._value), "}"))),
     _fieldValue: $ => choice($.boolean, $.string, $.vector, $.null, $.javascript),
-    field: $ => seq($._fieldType, field("type", $.identifier), field("name", $.identifier), $._fieldValue),
+    field: $ => seq($._fieldType, alias($._fieldType, $.type), field("name", $.identifier), $._fieldValue),
 
     _value: $ => choice(seq(optional(seq("DEF", $.identifier)), choice($.boolean, $.string, $.vector, $.class, $.null, $.javascript)), seq(choice("IS", "USE"), $.identifier)),
 

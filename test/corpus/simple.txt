@@ -36,6 +36,8 @@ PROTO TurtleBot3WafflePi [
     (identifier)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (vector
         (number)
@@ -43,6 +45,8 @@ PROTO TurtleBot3WafflePi [
         (number)))
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (vector
         (number)
@@ -51,36 +55,50 @@ PROTO TurtleBot3WafflePi [
         (number)))
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (string))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (string))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (vector))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (string))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (boolean))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (boolean))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (boolean))
     (comment)))
@@ -410,6 +428,8 @@ PROTO TurtleBot3WafflePi [
     (identifier)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (vector
         (number)
@@ -417,6 +437,8 @@ PROTO TurtleBot3WafflePi [
         (number)))
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (vector
         (number)
@@ -425,36 +447,50 @@ PROTO TurtleBot3WafflePi [
         (number)))
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (string))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (string))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (vector))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (string))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (boolean))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (boolean))
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (boolean))
     (comment)
@@ -1278,8 +1314,9 @@ Procedural PROTO
 
 PROTO DominoSpawner [
   # these are the PROTO fields and define the default values. Here template statements are not allowed
-  field SFVec2f   startPoint          0 0
-  field SFVec2f   endPoint            1 1
+  field SFVec2f              startPoint     0 0
+  field SFVec2f              endPoint       1 1
+  field SFString{"yes" "no"} option         "yes"
 ]
 {
   # template statements can be used from here
@@ -1303,16 +1340,28 @@ PROTO DominoSpawner [
     (comment)
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (vector
         (number)
         (number)))
     (field
       (identifier)
+      (type
+        (identifier))
       (identifier)
       (vector
         (number)
         (number)))
+    (field
+      (identifier)
+      (type
+        (identifier)
+        (string)
+        (string))
+      (identifier)
+      (string))
     (comment)
     (javascript
       (code))
