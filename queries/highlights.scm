@@ -18,11 +18,11 @@
 
 ; Fields/Properties
 
-(property "." (identifier) @property)
+(property . (identifier) @property)
 
 ; Types
 
-(class "." (identifier) @type)
+(class . (identifier) @type)
 
 ((identifier) @type
   (#lua-match? @type "^[A-Z][a-zA-Z0-9_]+$"))
@@ -31,9 +31,9 @@
 
 ; Punctuation
 
-[ "," ] @punctuation.delimiter
+"," @punctuation.delimiter
 
-[ "(" ")" "[" "]" "{" "}" ] @punctuation.bracket
+[ "[" "]" "{" "}" ] @punctuation.bracket
 
 ; Literals
 
