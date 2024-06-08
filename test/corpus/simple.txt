@@ -667,25 +667,18 @@ PROTO TurtleBot3WafflePi [
                       (identifier)
                       (vector
                         (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
+                          (number)
+                          (number)
                           (number))))
                     (property
                       (identifier)
                       (vector
                         (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
+                          (number)
+                          (number)
+                          (number)
+                          (number)
+                          (number)
                           (number)))))))))
           (class
             (identifier)
@@ -812,25 +805,18 @@ PROTO TurtleBot3WafflePi [
                       (identifier)
                       (vector
                         (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
+                          (number)
+                          (number)
                           (number))))
                     (property
                       (identifier)
                       (vector
                         (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
-                          (number))
-                        (vector
+                          (number)
+                          (number)
+                          (number)
+                          (number)
+                          (number)
                           (number)))))))))
           (class
             (identifier)
@@ -1047,25 +1033,18 @@ PROTO TurtleBot3WafflePi [
                         (identifier)
                         (vector
                           (vector
-                            (number))
-                          (vector
-                            (number))
-                          (vector
+                            (number)
+                            (number)
                             (number))))
                       (property
                         (identifier)
                         (vector
                           (vector
-                            (number))
-                          (vector
-                            (number))
-                          (vector
-                            (number))
-                          (vector
-                            (number))
-                          (vector
-                            (number))
-                          (vector
+                            (number)
+                            (number)
+                            (number)
+                            (number)
+                            (number)
                             (number)))))))
                 (class
                   (identifier)
@@ -1221,22 +1200,14 @@ PROTO TurtleBot3WafflePi [
               (identifier)
               (vector
                 (vector
-                  (number))
-                (vector
-                  (number))
-                (vector
-                  (number))
-                (vector
-                  (number))
-                (vector
-                  (number))
-                (vector
-                  (number))
-                (vector
-                  (number))
-                (vector
-                  (number))
-                (vector
+                  (number)
+                  (number)
+                  (number)
+                  (number)
+                  (number)
+                  (number)
+                  (number)
+                  (number)
                   (number))))
             (property
               (identifier)
@@ -1283,25 +1254,18 @@ PROTO TurtleBot3WafflePi [
             (identifier)
             (vector
               (vector
-                (number))
-              (vector
-                (number))
-              (vector
+                (number)
+                (number)
                 (number))))
           (property
             (identifier)
             (vector
               (vector
-                (number))
-              (vector
-                (number))
-              (vector
-                (number))
-              (vector
-                (number))
-              (vector
-                (number))
-              (vector
+                (number)
+                (number)
+                (number)
+                (number)
+                (number)
                 (number)))))))))
 
 ================================================================================

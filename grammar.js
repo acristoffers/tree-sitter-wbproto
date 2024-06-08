@@ -32,7 +32,7 @@ module.exports = grammar({
     number: _ => /[+-]?(\d+|\d+\.\d*|\.\d+)([eE][+-]?\d+)?[ij]?/,
     string: _ => seq('"', field("string_content", /[^"]*/), '"'),
     _vectorWithBrackets: $ => seq("[", repeat(seq(optional(","), $._value)), "]"),
-    _vectorWithoutBrackets: $ => prec(1, repeat1(seq(optional(","), $.number))),
+    _vectorWithoutBrackets: $ => prec(-1, repeat1(seq(optional(","), $.number))),
     vector: $ => choice($._vectorWithBrackets, $._vectorWithoutBrackets),
 
     _fieldDecl: _ => choice("field", "unconnectedField", "vrmlField", "hiddenField"),
