@@ -1303,12 +1303,10 @@ PROTO DominoSpawner [
           (javascript
             (code))
           (javascript
-            (code))))
-      (property
-        (identifier
+            (code))
           (javascript
-            (code)))
-        (number))
+            (code))
+          (number)))
       (property
         (identifier)
         (vector

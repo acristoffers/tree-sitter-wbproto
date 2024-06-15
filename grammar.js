@@ -48,7 +48,7 @@ module.exports = grammar({
     comment: _ => /#.*\n/,
     identifier: $ => choice($._word, $.javascript),
 
-    property: $ => seq(optional("hidden"), $.identifier, $._value),
+    property: $ => seq(optional("hidden"), alias($._word, $.identifier), $._value),
 
     // builtin types
     null: _ => "NULL",
