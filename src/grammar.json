@@ -43,8 +43,20 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "EXTERNPROTO"
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "IMPORTABLE"
+              },
+              {
+                "type": "STRING",
+                "value": "EXTERNPROTO"
+              }
+            ]
+          }
         },
         {
           "type": "SYMBOL",

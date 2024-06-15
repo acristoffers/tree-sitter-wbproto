@@ -40,7 +40,7 @@ module.exports = grammar({
   rules: {
     source_file: $ => seq(repeat($.extern), choice($.proto, repeat1(choice($.node, $.javascript)))),
 
-    extern: $ => seq("EXTERNPROTO", $.string),
+    extern: $ => seq(repeat1(choice("IMPORTABLE", "EXTERNPROTO")), $.string),
     proto: $ => seq("PROTO", field("proto", $.identifier), "[", repeat($.field), "]", "{", repeat(choice($.node, $.javascript)), "}"),
     javascript: $ => seq(choice("%<", "%<="), alias($._text_fragment, $.code), ">%"),
 

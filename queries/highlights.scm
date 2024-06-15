@@ -1,5 +1,6 @@
 ; Includes
 
+(extern "IMPORTABLE" @include)
 (extern "EXTERNPROTO" @include)
 
 ; Keywords
@@ -7,6 +8,7 @@
 [
   "DEF"
   "EXTERNPROTO"
+  "IMPORTABLE"
   "IS"
   "PROTO"
   "USE"
