@@ -157,7 +157,7 @@
     },
     "comment": {
       "type": "PATTERN",
-      "value": "#.*\\n"
+      "value": "#.*"
     },
     "identifier": {
       "type": "CHOICE",

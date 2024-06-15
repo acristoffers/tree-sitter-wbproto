@@ -45,7 +45,7 @@ module.exports = grammar({
     javascript: $ => seq(choice("%<", "%<="), alias($._text_fragment, $.code), ">%"),
 
     _word: _ => /[a-zA-Z_][a-zA-Z0-9_]*/,
-    comment: _ => /#.*\n/,
+    comment: _ => /#.*/,
     identifier: $ => choice($._word, $.javascript),
 
     property: $ => seq(optional("hidden"), alias($._word, $.identifier), $._value),
