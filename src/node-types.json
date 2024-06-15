@@ -5,25 +5,6 @@
     "fields": {}
   },
   {
-    "type": "class",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "property",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "extern",
     "named": true,
     "fields": {},
@@ -62,10 +43,6 @@
           "named": true
         },
         {
-          "type": "class",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
@@ -74,7 +51,15 @@
           "named": true
         },
         {
+          "type": "node",
+          "named": true
+        },
+        {
           "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
           "named": true
         },
         {
@@ -123,6 +108,25 @@
     }
   },
   {
+    "type": "node",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "property",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "property",
     "named": true,
     "fields": {},
@@ -135,10 +139,6 @@
           "named": true
         },
         {
-          "type": "class",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
@@ -147,7 +147,15 @@
           "named": true
         },
         {
+          "type": "node",
+          "named": true
+        },
+        {
           "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
           "named": true
         },
         {
@@ -181,15 +189,15 @@
       "required": false,
       "types": [
         {
-          "type": "class",
-          "named": true
-        },
-        {
           "type": "field",
           "named": true
         },
         {
           "type": "javascript",
+          "named": true
+        },
+        {
+          "type": "node",
           "named": true
         }
       ]
@@ -204,15 +212,15 @@
       "required": true,
       "types": [
         {
-          "type": "class",
-          "named": true
-        },
-        {
           "type": "extern",
           "named": true
         },
         {
           "type": "javascript",
+          "named": true
+        },
+        {
+          "type": "node",
           "named": true
         },
         {
@@ -240,10 +248,6 @@
           "named": true
         },
         {
-          "type": "class",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
@@ -252,7 +256,15 @@
           "named": true
         },
         {
+          "type": "node",
+          "named": true
+        },
+        {
           "type": "null",
+          "named": true
+        },
+        {
+          "type": "number",
           "named": true
         },
         {
@@ -279,19 +291,11 @@
           "named": true
         },
         {
-          "type": "class",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "javascript",
           "named": true
         },
         {
-          "type": "null",
+          "type": "node",
           "named": true
         },
         {
@@ -300,10 +304,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "vector",
           "named": true
         }
       ]
@@ -319,10 +319,6 @@
   },
   {
     "type": "%<=",
-    "named": false
-  },
-  {
-    "type": ",",
     "named": false
   },
   {
@@ -374,6 +370,14 @@
     "named": true
   },
   {
+    "type": "deprecatedField",
+    "named": false
+  },
+  {
+    "type": "exposedField",
+    "named": false
+  },
+  {
     "type": "field",
     "named": false
   },
@@ -399,6 +403,10 @@
   },
   {
     "type": "vrmlField",
+    "named": false
+  },
+  {
+    "type": "w3dField",
     "named": false
   },
   {

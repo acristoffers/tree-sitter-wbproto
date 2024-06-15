@@ -1,3 +1,3 @@
 [(proto)
- (class)
+ (node)
  (vector)] @fold
