@@ -55,7 +55,9 @@ module.exports = grammar({
     boolean: _ => choice('TRUE', 'FALSE'),
     number: _ => /[+-]?(\d+|\d+\.\d*|\.\d+)([eE][+-]?\d+)?[ij]?/,
     string: _ => seq('"', field("string_content", /[^"]*/), '"'),
-    node: $ => seq(optional(seq("DEF", $.identifier)), $.identifier, "{", repeat($.property), "}"),
+    node: $ => choice(
+      seq("USE", $.identifier),
+      seq(optional(seq("DEF", $.identifier)), $.identifier, "{", repeat($.property), "}")),
 
     _MFBool: $ => repeat1(choice($.boolean, $.javascript)),
     _MFNumber: $ => repeat1(choice($.number, $.javascript)),
@@ -70,7 +72,7 @@ module.exports = grammar({
     field: $ => seq(alias($._fieldDecl, $.identifier), alias($._fieldType, $.type), field("name", $.identifier), $._fieldValue),
 
     _value: $ => choice(
-      seq(choice("IS", "USE"), $.identifier),
+      seq("IS", $.identifier),
       seq(choice(
         $.boolean,
         $.node,
