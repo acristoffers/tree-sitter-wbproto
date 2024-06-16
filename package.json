@@ -48,7 +48,8 @@
     {
       "scope": "source.wbproto",
       "file-types": [
-        "proto"
+        "proto",
+        "wbt"
       ],
       "injection-regex": "^wbproto$"
     }
