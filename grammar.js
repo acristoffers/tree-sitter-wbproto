@@ -38,15 +38,16 @@ module.exports = grammar({
   extras: $ => [/\s/, $.comment, ","],
   externals: $ => [$._text_fragment, $.error_sentinel],
   rules: {
-    source_file: $ => seq(repeat($.extern), choice($.proto, repeat1(choice($.node, $.javascript)))),
+    source_file: $ => seq(repeat($.extern), choice($.proto, repeat1(choice($.node, $.javascript_block, $.javascript_expression)))),
 
     extern: $ => seq(repeat1(choice("IMPORTABLE", "EXTERNPROTO")), $.string),
-    proto: $ => seq("PROTO", field("proto", $.identifier), "[", repeat($.field), "]", "{", repeat(choice($.node, $.javascript)), "}"),
-    javascript: $ => seq(choice("%<", "%<="), alias($._text_fragment, $.code), ">%"),
+    proto: $ => seq("PROTO", field("proto", $.identifier), "[", repeat($.field), "]", "{", repeat(choice($.node, $.javascript_block, $.javascript_expression)), "}"),
+    javascript_block: $ => seq("%<", alias($._text_fragment, $.code), ">%"),
+    javascript_expression: $ => seq("%<=", alias($._text_fragment, $.code), ">%"),
 
     _word: _ => /[a-zA-Z_][a-zA-Z0-9_]*/,
     comment: _ => /#.*/,
-    identifier: $ => choice($._word, $.javascript),
+    identifier: $ => choice($._word, $.javascript_expression),
 
     property: $ => seq(optional("hidden"), alias($._word, $.identifier), $._value),
 
@@ -57,18 +58,18 @@ module.exports = grammar({
     string: _ => seq('"', field("string_content", /[^"]*/), '"'),
     node: $ => choice(
       seq("USE", $.identifier),
-      seq(optional(seq("DEF", $.identifier)), $.identifier, "{", repeat($.property), "}")),
+      seq(optional(seq("DEF", $.identifier)), $.identifier, "{", repeat(choice($.property, $.javascript_block)), "}")),
 
-    _MFBool: $ => repeat1(choice($.boolean, $.javascript)),
-    _MFNumber: $ => repeat1(choice($.number, $.javascript)),
-    _MFString: $ => repeat1(choice($.string, $.javascript)),
-    _MFNode: $ => repeat1(choice($.node, $.javascript)),
+    _MFBool: $ => repeat1(choice($.boolean, $.javascript_expression, $.javascript_block, ",")),
+    _MFNumber: $ => repeat1(choice($.number, $.javascript_expression, $.javascript_block, ",")),
+    _MFString: $ => repeat1(choice($.string, $.javascript_expression, $.javascript_block, ",")),
+    _MFNode: $ => repeat1(choice($.node, $.javascript_expression, $.javascript_block, ",")),
     vector: $ => seq("[", optional(choice($._MFBool, $._MFNumber, $._MFString, $._MFNode)), "]"),
-    vecf: $ => prec(2, seq(choice($.number, $.javascript), repeat1(choice($.number, $.javascript)))),
+    vecf: $ => prec(2, seq(choice($.number, $.javascript_expression), repeat1(choice($.number, $.javascript_expression)))),
 
     _fieldDecl: _ => choice("field", "unconnectedField", "vrmlField", "hiddenField", "w3dField", "deprecatedField", "exposedField"),
     _fieldType: $ => seq(alias(choice(...type_keywords), $.identifier), optional(seq("{", repeat($._value), "}"))),
-    _fieldValue: $ => choice($.boolean, $.string, $.vector, $.null, $.number, $.node, alias($.vecf, $.vector), $.javascript),
+    _fieldValue: $ => choice($.boolean, $.string, $.vector, $.null, $.number, $.node, alias($.vecf, $.vector), $.javascript_expression),
     field: $ => seq(alias($._fieldDecl, $.identifier), alias($._fieldType, $.type), field("name", $.identifier), $._fieldValue),
 
     _value: $ => choice(
@@ -81,7 +82,6 @@ module.exports = grammar({
         $.vector,
         $.number,
         alias($.vecf, $.vector),
-        $.javascript))),
+        $.javascript_expression))),
   }
 });
-

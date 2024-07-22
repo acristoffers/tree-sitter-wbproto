@@ -30,7 +30,11 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "javascript"
+                    "name": "javascript_block"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "javascript_expression"
                   }
                 ]
               }
@@ -109,7 +113,11 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "javascript"
+                "name": "javascript_block"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "javascript_expression"
               }
             ]
           }
@@ -120,21 +128,34 @@
         }
       ]
     },
-    "javascript": {
+    "javascript_block": {
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "%<"
-            },
-            {
-              "type": "STRING",
-              "value": "%<="
-            }
-          ]
+          "type": "STRING",
+          "value": "%<"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_text_fragment"
+          },
+          "named": true,
+          "value": "code"
+        },
+        {
+          "type": "STRING",
+          "value": ">%"
+        }
+      ]
+    },
+    "javascript_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "%<="
         },
         {
           "type": "ALIAS",
@@ -168,7 +189,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "javascript"
+          "name": "javascript_expression"
         }
       ]
     },
@@ -295,8 +316,17 @@
             {
               "type": "REPEAT",
               "content": {
-                "type": "SYMBOL",
-                "name": "property"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "property"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "javascript_block"
+                  }
+                ]
               }
             },
             {
@@ -318,7 +348,15 @@
           },
           {
             "type": "SYMBOL",
-            "name": "javascript"
+            "name": "javascript_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "javascript_block"
+          },
+          {
+            "type": "STRING",
+            "value": ","
           }
         ]
       }
@@ -334,7 +372,15 @@
           },
           {
             "type": "SYMBOL",
-            "name": "javascript"
+            "name": "javascript_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "javascript_block"
+          },
+          {
+            "type": "STRING",
+            "value": ","
           }
         ]
       }
@@ -350,7 +396,15 @@
           },
           {
             "type": "SYMBOL",
-            "name": "javascript"
+            "name": "javascript_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "javascript_block"
+          },
+          {
+            "type": "STRING",
+            "value": ","
           }
         ]
       }
@@ -366,7 +420,15 @@
           },
           {
             "type": "SYMBOL",
-            "name": "javascript"
+            "name": "javascript_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "javascript_block"
+          },
+          {
+            "type": "STRING",
+            "value": ","
           }
         ]
       }
@@ -428,7 +490,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "javascript"
+                "name": "javascript_expression"
               }
             ]
           },
@@ -443,7 +505,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "javascript"
+                  "name": "javascript_expression"
                 }
               ]
             }
@@ -637,7 +699,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "javascript"
+          "name": "javascript_expression"
         }
       ]
     },
@@ -733,7 +795,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "javascript"
+                  "name": "javascript_expression"
                 }
               ]
             }

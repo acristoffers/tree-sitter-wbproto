@@ -751,7 +751,8 @@ PROTO TurtleBot3WafflePi [
                             (identifier)
                             (property
                               (identifier)
-                              (identifier))
+                              (node
+                                (identifier)))
                             (property
                               (identifier)
                               (node
@@ -845,7 +846,8 @@ PROTO TurtleBot3WafflePi [
                             (number)))))))
                 (property
                   (identifier)
-                  (identifier))
+                  (node
+                    (identifier)))
                 (property
                   (identifier)
                   (node
@@ -886,10 +888,12 @@ PROTO TurtleBot3WafflePi [
                           (identifier)))
                       (property
                         (identifier)
-                        (identifier)))))
+                        (node
+                          (identifier))))))
                 (property
                   (identifier)
-                  (identifier))
+                  (node
+                    (identifier)))
                 (property
                   (identifier)
                   (node
@@ -969,7 +973,8 @@ PROTO TurtleBot3WafflePi [
                               (identifier)
                               (property
                                 (identifier)
-                                (identifier))
+                                (node
+                                  (identifier)))
                               (property
                                 (identifier)
                                 (node
@@ -1285,32 +1290,32 @@ PROTO DominoSpawner [
       (identifier)
       (string))
     (comment)
-    (javascript
+    (javascript_block
       (code))
     (node
       (identifier))
-    (javascript
+    (javascript_block
       (code))
     (node
       (identifier)
       (property
         (identifier)
-        (javascript
+        (javascript_expression
           (code)))
       (property
         (identifier)
         (vector
-          (javascript
+          (javascript_expression
             (code))
-          (javascript
+          (javascript_expression
             (code))
-          (javascript
+          (javascript_expression
             (code))
           (number)))
       (property
         (identifier)
         (vector
-          (javascript
+          (javascript_expression
             (code)))))
-    (javascript
+    (javascript_block
       (code))))
